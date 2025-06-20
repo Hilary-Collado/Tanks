@@ -78,12 +78,12 @@ namespace Tanks.Complete
             // We use an array because the code was originally written to have any number of prefabs and player, but
             // this was fixed to always 4 tanks during development, so to avoid rewriting the code for static number,
             // we simply transform our 4 static tank prefab into an array
-            var tanksPrefabs =
-                new[]
-                {
-                    m_GameManager.m_Tank1Prefab, m_GameManager.m_Tank2Prefab, m_GameManager.m_Tank3Prefab,
-                    m_GameManager.m_Tank4Prefab
-                };
+            //var tanksPrefabs =
+            //    new[]
+            //    {
+            //        m_GameManager.m_Tank1Prefab, m_GameManager.m_Tank2Prefab, m_GameManager.m_Tank3Prefab,
+            //        m_GameManager.m_Tank4Prefab
+            //    };
 
             // Go over all the player slots (4) and initialize them...
             for (int i = 0; i < m_PlayerSlots.Length; ++i)
@@ -91,7 +91,7 @@ namespace Tanks.Complete
                 var slot = m_PlayerSlots[i];
 
                 // set the preview on the slot 
-                slot.SetTankPreview(tanksPrefabs.Length > i ? tanksPrefabs[i] : tanksPrefabs[0]);
+                //slot.SetTankPreview(tanksPrefabs.Length > i ? tanksPrefabs[i] : tanksPrefabs[0]);
 
                 var i1 = i;
                 slot.m_AddControlButton.onClick.AddListener(() =>

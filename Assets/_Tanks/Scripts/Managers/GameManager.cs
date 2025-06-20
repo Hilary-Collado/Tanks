@@ -29,16 +29,20 @@ namespace Tanks.Complete
         public float m_EndDelay = 3f;               // The delay between the end of RoundPlaying and RoundEnding phases.
         public CameraControl m_CameraControl;       // Reference to the CameraControl script for control during different phases.
 
-        [Header("Tanks Prefabs")]
+		public TMP_Text m_MessageText; 
+
+		[Header("Tanks Prefabs")]
         public GameObject m_Tank1Prefab;            // The Prefab used by the tank in Slot 1 of the Menu
         public GameObject m_Tank2Prefab;            // The Prefab used by the tank in Slot 2 of the Menu
-        public GameObject m_Tank3Prefab;            // The Prefab used by the tank in Slot 3 of the Menu
-        public GameObject m_Tank4Prefab;            // The Prefab used by the tank in Slot 4 of the Menu
+        //public GameObject m_Tank3Prefab;            // The Prefab used by the tank in Slot 3 of the Menu
+        //public GameObject m_Tank4Prefab;            // The Prefab used by the tank in Slot 4 of the Menu
         
         [FormerlySerializedAs("m_Tanks")] 
-        public TankManager[] m_SpawnPoints;         // A collection of managers for enabling and disabling different aspects of the tanks.
-        
-        private GameState m_CurrentState;
+        public TankManager[] m_SpawnPoints;  // A collection of managers for enabling and disabling different aspects of the tanks.
+        //public GameObject m_TankPrefab;
+             
+
+		private GameState m_CurrentState;
         
         private int m_RoundNumber;                  // Which round the game is currently on.
         private WaitForSeconds m_StartWait;         // Used to have a delay whilst the round starts.
@@ -48,7 +52,7 @@ namespace Tanks.Complete
 
         private PlayerData[] m_TankData;            // Data passed from the menu about each selected tank (at least 2, max 4)
         private int m_PlayerCount = 0;              // The number of players (2 to 4), decided from the number of PlayerData passed by the menu
-        private TextMeshProUGUI m_TitleText;        // The text used to display game message. Automatically found as part of the Menu prefab
+        private TMP_Text m_TitleText;        // The text used to display game message. Automatically found as part of the Menu prefab
 
         private void Start()
         {
@@ -69,10 +73,10 @@ namespace Tanks.Complete
             m_TitleText.text = "";
 
             // The GameManager require 4 tanks prefabs, as the start menu have 4 fixed slot and need the 4 tanks to show there
-            if (m_Tank1Prefab == null || m_Tank2Prefab == null || m_Tank3Prefab == null || m_Tank4Prefab == null)
-            {
-                Debug.LogError("You need to assign 4 tank prefab in the GameManager!");
-            }
+            //if (m_Tank1Prefab == null || m_Tank2Prefab == null || m_Tank3Prefab == null || m_Tank4Prefab == null)
+            //{
+            //    Debug.LogError("You need to assign 4 tank prefab in the GameManager!");
+            //}
         }
 
         void GameStart()
